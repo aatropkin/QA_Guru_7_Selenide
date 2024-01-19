@@ -20,7 +20,7 @@ public class RegistrationTest extends TestBase {
                 .setEmail("test@mail.ru")
                 .setGender("Other")
                 .setUserNumber("1234567890")
-                .setDateOfBirth("28", "July", "1998")
+                .setDateOfBirth("9", "July", "1998")
                 .setSubject("Maths")
                 .setHobbies("Sports")
                 .uploadPicture("1.jpg")
@@ -31,13 +31,13 @@ public class RegistrationTest extends TestBase {
                 .checkResult("Student Email", "test@mail.ru")
                 .checkResult("Gender", "Other")
                 .checkResult("Mobile", "1234567890")
-                .checkResult("Date of Birth", "30 November,1992")
+                .checkResult("Date of Birth", "9 July,1998")
                 .checkResult("Subjects", "Maths")
                 .checkResult("Hobbies", "Sports")
                 .checkResult("Picture", "1.jpg")
                 .checkResult("Address", "1523 Stellar Dr, Kenai, Alaska 99611, USA")
                 .checkResult("State and City", "NCR Gurgaon");
-    }
+  }
 
     @Test
     void minimalFormRegistrationTest() {
@@ -52,7 +52,7 @@ public class RegistrationTest extends TestBase {
                 .checkResult("Student Name", "Alex Petrov")
                 .checkResult("Gender", "Other")
                 .checkResult("Mobile", "1234567890")
-                .checkResult("Date of Birth", "30 November,1992");
+                .checkResult("Date of Birth", "30 July,2008");
     }
 
     @Test
