@@ -110,13 +110,13 @@ public class RegistrationPage {
     }
 
     public RegistrationPage checkValidation() {
-        String warningСolor = "rgb(220, 53, 69)";
-        firstNameInput.shouldHave(cssValue("border-color", warningСolor));
-        lastNameInput.shouldHave(cssValue("border-color", warningСolor));
-        genderInput.$("label[for='gender-radio-1']").shouldHave(cssValue("border-color",warningСolor)); //Male
-        genderInput.$("label[for='gender-radio-2']").shouldHave(cssValue("border-color",warningСolor)); //Female
-        genderInput.$("label[for='gender-radio-3']").shouldHave(cssValue("border-color",warningСolor)); //Other
-        userNumberInput.shouldHave(cssValue("border-color",warningСolor));
+        String warningColor = "rgb(220, 53, 69)";
+        firstNameInput.shouldHave(cssValue("border-color", warningColor));
+        lastNameInput.shouldHave(cssValue("border-color", warningColor));
+        genderInput.$("label[for='gender-radio-1']").shouldHave(cssValue("border-color", warningColor)); //Male
+        genderInput.$("label[for='gender-radio-2']").shouldHave(cssValue("border-color", warningColor)); //Female
+        genderInput.$("label[for='gender-radio-3']").shouldHave(cssValue("border-color", warningColor)); //Other
+        userNumberInput.shouldHave(cssValue("border-color", warningColor));
         return this;
     }
 

@@ -1,7 +1,11 @@
 package tests;
 
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideWait;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
+
+import static com.codeborne.selenide.Selenide.sleep;
 
 
 public class RegistrationTest extends TestBase {
@@ -16,7 +20,7 @@ public class RegistrationTest extends TestBase {
                 .setEmail("test@mail.ru")
                 .setGender("Other")
                 .setUserNumber("1234567890")
-                .setDateOfBirth("30", "July", "2008")
+                .setDateOfBirth("28", "July", "1998")
                 .setSubject("Maths")
                 .setHobbies("Sports")
                 .uploadPicture("1.jpg")
