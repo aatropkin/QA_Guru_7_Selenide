@@ -1,7 +1,7 @@
 package tests;
-
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideWait;
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
@@ -10,15 +10,19 @@ import static com.codeborne.selenide.Selenide.sleep;
 
 public class RegistrationTest extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
+    Faker faker = new Faker();
+    String firstName = faker.name().firstName();
+    String lastName = faker.name().lastName();
+    String gender = faker.options().option("Male", "Female", "Other");
 
     @Test
     void fullFormRegistrationTest() {
 
         registrationPage.openPage()
-                .setFirstName("Alex")
-                .setLastName("Petrov")
+                .setFirstName(firstName)
+                .setLastName(lastName)
                 .setEmail("test@mail.ru")
-                .setGender("Other")
+                .setGender(gender)
                 .setUserNumber("1234567890")
                 .setDateOfBirth("9", "July", "1998")
                 .setSubject("Maths")
@@ -27,9 +31,9 @@ public class RegistrationTest extends TestBase {
                 .setAddress("1523 Stellar Dr, Kenai, Alaska 99611, USA")
                 .setStateAndCity("NCR", "Gurgaon")
                 .submitForm()
-                .checkResult("Student Name", "Alex Petrov")
+                .checkResult("Student Name", firstName + " " + lastName)
                 .checkResult("Student Email", "test@mail.ru")
-                .checkResult("Gender", "Other")
+                .checkResult("Gender", gender)
                 .checkResult("Mobile", "1234567890")
                 .checkResult("Date of Birth", "9 July,1998")
                 .checkResult("Subjects", "Maths")
@@ -43,14 +47,14 @@ public class RegistrationTest extends TestBase {
     void minimalFormRegistrationTest() {
 
         registrationPage.openPage()
-                .setFirstName("Alex")
-                .setLastName("Petrov")
-                .setGender("Other")
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setGender(gender)
                 .setUserNumber("1234567890")
                 .setDateOfBirth("30", "July", "2008")
                 .submitForm()
-                .checkResult("Student Name", "Alex Petrov")
-                .checkResult("Gender", "Other")
+                .checkResult("Student Name", firstName + " " + lastName)
+                .checkResult("Gender", gender)
                 .checkResult("Mobile", "1234567890")
                 .checkResult("Date of Birth", "30 July,2008");
     }
