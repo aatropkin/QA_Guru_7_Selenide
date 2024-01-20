@@ -80,7 +80,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setHobbies(String value) {
-        hobbyCheckBox.$(byText("Sports")).click();
+        hobbyCheckBox.$(byText(value)).click();
 
         return this;
     }
